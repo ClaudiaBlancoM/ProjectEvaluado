@@ -1,0 +1,16 @@
+<% if @project.errors.any? %>
+<div id="error_explanation">
+  <h2 class="mt-3">El proyecto no ha podido ser guardado, inténtalo nuevamente:</h2>
+  <p>Volver a <%= link_to "home", pages_index_path %> e inténtalo nuevamente 😊<p>
+  <p><%= pluralize(@project.errors.count, "error") %>:</p>
+  <ul>
+    <% @project.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% else %>
+  <h2>El Proyecto ha sido creado</h2>
+  <p>Tu proyecto fue creado exitosamente </p>
+  <p>Puedes revisa tus proyectos en el <%= link_to "Dashboard", pages_dashboard_path %></p>
+<% end %>
